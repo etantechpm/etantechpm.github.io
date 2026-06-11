@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design System &amp; Deck Kit — Elise Tan</title>
+<meta name="description" content="The wabi-sabi visual system behind the portfolio — and matching 16:9 slide templates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  /* ---------- doc shell ---------- */
+  .ds-intro{padding:96px 0 64px;border-bottom:1px solid var(--line);position:relative;overflow:hidden;}
+  .ds-intro::after{content:"";position:absolute;top:40px;right:-60px;width:300px;height:300px;border:2px solid var(--seal);border-radius:50%;opacity:.26;-webkit-mask:conic-gradient(from 30deg,#000 0 300deg,transparent 300deg);mask:conic-gradient(from 30deg,#000 0 300deg,transparent 300deg);}
+  .ds-intro .wrap{position:relative;z-index:1;}
+  .ds-intro h1{font-family:var(--mincho);font-size:clamp(44px,7vw,84px);line-height:1.08;font-weight:600;letter-spacing:0.005em;max-width:16ch;margin-bottom:30px;}
+  .ds-intro h1 em{color:var(--seal);}
+  .ds-intro .lede{max-width:600px;font-size:20px;line-height:1.75;color:var(--sumi-soft);}
+  .ds-meta{display:flex;gap:48px;flex-wrap:wrap;margin-top:48px;}
+  .ds-meta .m .k{font-family:var(--gothic);font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+  .ds-meta .m .v{font-family:var(--mincho);font-size:18px;}
+
+  .ds-num{font-family:var(--gothic);font-size:12px;font-weight:500;letter-spacing:0.24em;text-transform:uppercase;color:var(--muted);}
+
+  /* principles */
+  .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);}
+  .principle{padding:40px 36px 40px 0;border-right:1px solid var(--line);}
+  .principle:last-child{border-right:0;}
+  .principle .jp{font-family:var(--mincho);font-size:40px;font-weight:600;color:var(--seal);line-height:1;}
+  .principle .en{font-family:var(--mincho);font-size:21px;font-weight:600;margin-top:18px;}
+  .principle p{font-size:15px;line-height:1.75;color:var(--sumi-soft);margin-top:12px;}
+
+  /* color */
+  .swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .sw{border:1px solid var(--line);background:var(--card);}
+  .sw .chip{height:120px;border-bottom:1px solid var(--line);}
+  .sw .meta{padding:16px 18px;}
+  .sw .nm{font-family:var(--mincho);font-size:17px;font-weight:600;}
+  .sw .hex{font-family:var(--gothic);font-size:12px;letter-spacing:0.06em;color:var(--muted);margin-top:6px;text-transform:uppercase;}
+  .sw .role{font-family:var(--gothic);font-size:12px;color:var(--sumi-soft);margin-top:10px;line-height:1.6;}
+
+  /* type specimens */
+  .type-row{display:grid;grid-template-columns:160px 1fr;gap:40px;padding:32px 0;border-top:1px solid var(--line);align-items:baseline;}
+  .type-row:last-child{border-bottom:1px solid var(--line);}
+  .type-row .spec{font-family:var(--gothic);font-size:12px;line-height:1.7;color:var(--muted);letter-spacing:0.04em;}
+  .type-row .spec b{display:block;color:var(--sumi);font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;}
+  .sample-d1{font-family:var(--mincho);font-size:60px;font-weight:600;letter-spacing:0.005em;line-height:1.05;}
+  .sample-d2{font-family:var(--mincho);font-size:34px;font-weight:600;line-height:1.2;}
+  .sample-d3{font-family:var(--mincho);font-size:23px;font-weight:500;}
+  .sample-body{font-family:var(--gothic);font-size:17px;font-weight:400;line-height:1.85;color:var(--sumi-soft);max-width:60ch;}
+  .sample-label{font-family:var(--gothic);font-size:12px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);}
+
+  /* component shelf */
+  .shelf{display:grid;grid-template-columns:repeat(2,1fr);gap:48px;}
+  .shelf .cell .ttl{font-family:var(--gothic);font-size:12px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:22px;padding-bottom:12px;border-bottom:1px solid var(--line);}
+  .shelf .demo{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+
+  /* ---------- slide deck kit ---------- */
+  .deck-kit{display:flex;flex-direction:column;gap:40px;}
+  .slide-block .slide-cap{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px;gap:20px;flex-wrap:wrap;}
+  .slide-block .slide-cap .name{font-family:var(--mincho);font-size:20px;font-weight:600;display:flex;align-items:baseline;gap:13px;}
+  .slide-block .slide-cap .name::before{content:"";align-self:center;width:7px;height:7px;border-radius:50%;background:var(--seal);}
+  .slide-block .slide-cap .use{font-family:var(--gothic);font-size:12px;color:var(--muted);letter-spacing:0.04em;}
+  .slide-thumb{width:100%;aspect-ratio:16/9;position:relative;overflow:hidden;border:1px solid var(--line);background:var(--washi);box-shadow:0 1px 0 var(--line);}
+  .slide{position:absolute;top:0;left:0;width:1280px;height:720px;transform-origin:top left;background:var(--washi);overflow:hidden;}
+  .slide.dark{background:var(--sumi);color:var(--washi);}
+  /* paper grain inside slides */
+  .slide::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .slide.dark::after{mix-blend-mode:screen;opacity:.06;}
+
+  .s-pad{position:absolute;inset:96px 110px;display:flex;flex-direction:column;}
+  .s-kicker{font-family:var(--gothic);font-size:18px;font-weight:500;letter-spacing:0.26em;text-transform:uppercase;color:var(--muted);}
+  .slide.dark .s-kicker{color:#b3aa98;}
+  .s-rule{width:64px;height:1px;background:var(--seal);margin:0;}
+  .s-enso{position:absolute;border:3px solid var(--seal);border-radius:50%;-webkit-mask:conic-gradient(from 28deg,#000 0 300deg,transparent 300deg);mask:conic-gradient(from 28deg,#000 0 300deg,transparent 300deg);}
+
+  /* title slide */
+  .t-title{font-family:var(--mincho);font-weight:600;font-size:104px;line-height:1.04;letter-spacing:0.005em;}
+  .t-title em{color:var(--seal);font-style:normal;}
+  .t-sub{font-family:var(--gothic);font-size:26px;color:var(--sumi-soft);margin-top:34px;max-width:30ch;line-height:1.6;}
+  .t-foot{position:absolute;left:110px;right:110px;bottom:88px;display:flex;justify-content:space-between;align-items:baseline;font-family:var(--gothic);font-size:18px;color:var(--muted);letter-spacing:0.06em;}
+
+  /* section divider */
+  .sec-no{font-family:var(--gothic);font-size:22px;font-weight:500;letter-spacing:0.3em;color:var(--seal);text-transform:uppercase;}
+  .sec-title{font-family:var(--mincho);font-weight:600;font-size:92px;line-height:1.05;letter-spacing:0.01em;margin-top:30px;}
+  .sec-meta{font-family:var(--gothic);font-size:22px;color:var(--sumi-soft);margin-top:36px;max-width:36ch;line-height:1.6;}
+
+  /* content slide */
+  .c-h{font-family:var(--mincho);font-weight:600;font-size:62px;line-height:1.1;letter-spacing:0.01em;max-width:20ch;}
+  .c-cols{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:auto;}
+  .c-lead{font-family:var(--mincho);font-size:30px;font-weight:500;line-height:1.45;}
+  .c-list{list-style:none;display:flex;flex-direction:column;gap:20px;}
+  .c-list li{font-family:var(--gothic);font-size:24px;color:var(--sumi-soft);line-height:1.5;padding-left:34px;position:relative;}
+  .c-list li::before{content:"";position:absolute;left:0;top:14px;width:9px;height:9px;border-radius:50%;background:var(--seal);opacity:.55;}
+
+  /* stat slide */
+  .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:auto;border-top:1px solid var(--line);}
+  .slide.dark .stat-grid{border-color:rgba(236,230,217,0.2);}
+  .stat-cell{padding:48px 40px 8px 0;}
+  .stat-cell .sn{font-family:var(--mincho);font-size:96px;font-weight:500;line-height:0.9;letter-spacing:0.01em;}
+  .stat-cell .sn em{color:var(--seal);font-style:normal;}
+  .stat-cell .st{font-family:var(--gothic);font-size:19px;color:var(--muted);margin-top:24px;line-height:1.5;max-width:16ch;}
+  .slide.dark .stat-cell .st{color:#b3aa98;}
+
+  /* quote slide */
+  .q-mark{font-family:var(--mincho);font-size:160px;color:var(--seal);line-height:0.5;height:70px;}
+  .q-body{font-family:var(--mincho);font-weight:500;font-size:54px;line-height:1.4;letter-spacing:0.01em;max-width:24ch;}
+  .q-by{font-family:var(--gothic);font-size:22px;color:var(--muted);margin-top:48px;letter-spacing:0.06em;}
+
+  /* closing slide */
+  .cl-h{font-family:var(--mincho);font-weight:600;font-size:88px;line-height:1.08;letter-spacing:0.01em;max-width:18ch;}
+  .cl-h em{color:var(--seal);font-style:normal;}
+  .cl-links{display:flex;gap:48px;margin-top:56px;font-family:var(--gothic);font-size:24px;}
+  .cl-links a,.cl-links span{color:var(--washi);text-decoration:none;border-bottom:1px solid var(--seal);padding-bottom:6px;}
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  @media (max-width:980px){
+    .principles{grid-template-columns:1fr;}
+    .principle{border-right:0;border-bottom:1px solid var(--line);padding-right:0;}
+    .principle:last-child{border-bottom:0;}
+    .swatches{grid-template-columns:1fr 1fr;}
+    .shelf,.grid-2{grid-template-columns:1fr;}
+    .type-row{grid-template-columns:1fr;gap:14px;}
+  }
+</style>
+</head>
+<body data-screen-label="Design System">
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="mark" href="index.html"><span class="dot"></span>Elise Tan</a>
+      <button class="nav-toggle" aria-expanded="false">Menu</button>
+      <nav class="links">
+        <a href="about.html">About</a>
+        <a href="work.html">Work</a>
+        <a href="experience.html">Experience</a>
+        <a href="skills.html">Skills</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- INTRO -->
+    <section class="ds-intro">
+      <div class="wrap">
+        <div class="ds-num reveal" style="margin-bottom:28px;">侘寂 · Design System &amp; Deck Kit</div>
+        <h1 class="reveal" data-delay="60">A quiet system, built for <em>restraint.</em></h1>
+        <p class="lede reveal" data-delay="120">The visual language behind the portfolio — washi paper, sumi ink, and a single persimmon seal. Use this page to build slides that feel like one continuous piece with the site.</p>
+        <div class="ds-meta reveal" data-delay="180">
+          <div class="m"><div class="k">Aesthetic</div><div class="v">Wabi-sabi 侘寂</div></div>
+          <div class="m"><div class="k">Type</div><div class="v">Shippori Mincho · Zen Kaku Gothic</div></div>
+          <div class="m"><div class="k">Slide ratio</div><div class="v">16 : 9 · 1280×720</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRINCIPLES -->
+    <section class="block">
+      <div class="wrap">
+        <div class="sec-head reveal"><h2>Principles</h2><span class="ds-num">01</span></div>
+        <div class="principles reveal">
+          <div class="principle">
+            <div class="jp">間</div>
+            <div class="en">Ma — negative space</div>
+            <p>Emptiness is a material. Let generous margins and quiet gaps carry as much weight as the content. Never fill a slide edge to edge.</p>
+          </div>
+          <div class="principle">
+            <div class="jp">寂</div>
+            <div class="en">Restraint</div>
+            <p>One accent, one idea per surface. Sumi-ink type on warm paper; the persimmon seal appears once, never as decoration. Subtract before you add.</p>
+          </div>
+          <div class="principle">
+            <div class="jp">侘</div>
+            <div class="en">Imperfect calm</div>
+            <p>Soft hairlines, a faint paper grain, an unclosed ensō circle. Nothing crisp or synthetic — warmth and a hand-made hush throughout.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLOR -->
+    <section class="block">
+      <div class="wrap">
+        <div class="sec-head reveal"><h2>Colour</h2><span class="ds-num">02</span></div>
+        <div class="swatches reveal">
+          <div class="sw"><div class="chip" style="background:#ece6d9;"></div><div class="meta"><div class="nm">Washi</div><div class="hex">#ECE6D9</div><div class="role">Primary paper — every background.</div></div></div>
+          <div class="sw"><div class="chip" style="background:#e4dcca;"></div><div class="meta"><div class="nm">Washi Deep</div><div class="hex">#E4DCCA</div><div class="role">Panels, placeholders, quiet fills.</div></div></div>
+          <div class="sw"><div class="chip" style="background:#332f29;"></div><div class="meta"><div class="nm">Sumi Ink</div><div class="hex">#332F29</div><div class="role">Primary text &amp; dark slides.</div></div></div>
+          <div class="sw"><div class="chip" style="background:#a04a30;"></div><div class="meta"><div class="nm">Seal — Persimmon</div><div class="hex">#A04A30</div><div class="role">The single accent. Use sparingly.</div></div></div>
+          <div class="sw"><div class="chip" style="background:#5b564c;"></div><div class="meta"><div class="nm">Sumi Soft</div><div class="hex">#5B564C</div><div class="role">Body copy, secondary text.</div></div></div>
+          <div class="sw"><div class="chip" style="background:#8d8576;"></div><div class="meta"><div class="nm">Muted</div><div class="hex">#8D8576</div><div class="role">Labels, captions, metadata.</div></div></div>
+          <div class="sw"><div class="chip" style="background:#cdc2ac;"></div><div class="meta"><div class="nm">Hairline</div><div class="hex">#CDC2AC</div><div class="role">All rules &amp; dividers, 1px.</div></div></div>
+          <div class="sw"><div class="chip" style="background:#6f7256;"></div><div class="meta"><div class="nm">Moss</div><div class="hex">#6F7256</div><div class="role">Rare secondary, optional only.</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TYPE -->
+    <section class="block">
+      <div class="wrap">
+        <div class="sec-head reveal"><h2>Typography</h2><span class="ds-num">03</span></div>
+        <div class="reveal">
+          <div class="type-row">
+            <div class="spec"><b>Display 1</b>Shippori Mincho · 600<br>60–104px · LS +0.5%<br>Leading 1.05</div>
+            <div class="sample-d1">速さより、<br>確かさを。</div>
+          </div>
+          <div class="type-row">
+            <div class="spec"><b>Display 2</b>Shippori Mincho · 600<br>34px · Leading 1.2</div>
+            <div class="sample-d2">Building products that speak every language.</div>
+          </div>
+          <div class="type-row">
+            <div class="spec"><b>Subhead</b>Shippori Mincho · 500<br>23px</div>
+            <div class="sample-d3">Global expansion, told through data.</div>
+          </div>
+          <div class="type-row">
+            <div class="spec"><b>Body</b>Zen Kaku Gothic New · 400<br>17px · Leading 1.85</div>
+            <div class="sample-body">A seasoned product manager with a passion for global expansion and storytelling with data — known for rigorous discovery, efficient execution, and mobilizing organizations toward a common goal.</div>
+          </div>
+          <div class="type-row">
+            <div class="spec"><b>Label</b>Zen Kaku Gothic · 500<br>12px · LS +20%<br>Uppercase</div>
+            <div class="sample-label">Product · Program · Operations</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPONENTS -->
+    <section class="block">
+      <div class="wrap">
+        <div class="sec-head reveal"><h2>Components</h2><span class="ds-num">04</span></div>
+        <div class="shelf reveal">
+          <div class="cell">
+            <div class="ttl">Buttons</div>
+            <div class="demo"><a class="btn solid" href="#">Primary <span class="arr">→</span></a><a class="btn ghost" href="#">Secondary</a></div>
+          </div>
+          <div class="cell">
+            <div class="ttl">Tags</div>
+            <div class="demo"><span class="tag">Product Strategy</span><span class="tag">AI / ML</span><span class="tag">Localization</span></div>
+          </div>
+          <div class="cell">
+            <div class="ttl">Section heading</div>
+            <div class="demo"><h2 style="font-family:var(--mincho);font-size:30px;font-weight:600;display:flex;align-items:baseline;gap:14px;"><span style="align-self:center;width:7px;height:7px;border-radius:50%;background:var(--seal);"></span>Selected Work</h2></div>
+          </div>
+          <div class="cell">
+            <div class="ttl">Statistic</div>
+            <div class="demo"><div><div style="font-family:var(--mincho);font-size:52px;font-weight:500;line-height:1;">63<span style="color:var(--seal);">%</span></div><div style="font-family:var(--gothic);font-size:12px;letter-spacing:0.06em;color:var(--muted);margin-top:14px;padding-top:12px;border-top:1px solid var(--line);max-width:16ch;">Faster delivery via integrations</div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DECK KIT -->
+    <section class="block">
+      <div class="wrap">
+        <div class="sec-head reveal"><h2>Slide templates</h2><span class="ds-num">05 · 16:9</span></div>
+        <div class="deck-kit">
+
+          <!-- 1 · TITLE -->
+          <div class="slide-block reveal">
+            <div class="slide-cap"><span class="name">Title</span><span class="use">Opening slide — name, role, one quiet statement.</span></div>
+            <div class="slide-thumb"><div class="slide" data-slide>
+              <div class="s-enso" style="top:-90px;right:-120px;width:480px;height:480px;opacity:.22;"></div>
+              <div class="s-pad">
+                <div class="s-kicker">Product · Program · Operations</div>
+                <div style="margin-top:auto;">
+                  <div class="t-title">Building products<br>that speak <em>every</em><br>language.</div>
+                </div>
+              </div>
+              <div class="t-foot"><span>Elise Tan</span><span>Portfolio · 2026</span></div>
+            </div></div>
+          </div>
+
+          <!-- 2 · SECTION -->
+          <div class="slide-block reveal">
+            <div class="slide-cap"><span class="name">Section divider</span><span class="use">Chapter breaks — number, title, framing line.</span></div>
+            <div class="slide-thumb"><div class="slide dark" data-slide>
+              <div class="s-enso" style="bottom:-150px;left:-120px;width:420px;height:420px;opacity:.3;"></div>
+              <div class="s-pad" style="justify-content:center;">
+                <div class="sec-no">02 — Selected Work</div>
+                <div class="sec-title">Things I've built,<br>shipped &amp; scaled.</div>
+                <div class="sec-meta">Global product expansion at scale — and a study in building with AI.</div>
+              </div>
+            </div></div>
+          </div>
+
+          <!-- 3 · CONTENT -->
+          <div class="slide-block reveal">
+            <div class="slide-cap"><span class="name">Content — lead + points</span><span class="use">The workhorse. A statement, then quiet supporting points.</span></div>
+            <div class="slide-thumb"><div class="slide" data-slide>
+              <div class="s-pad">
+                <div class="s-kicker" style="font-size:15px;">Globalizing Disney</div>
+                <div class="c-h" style="margin-top:22px;">Turning global complexity into a product that scales.</div>
+                <div class="c-cols">
+                  <div class="c-lead">We rebuilt localization from an ad-hoc process into a repeatable operating system.</div>
+                  <ul class="c-list">
+                    <li>4 PMs across 33 languages, 155 countries</li>
+                    <li>5 CMS–TMS integrations shipped</li>
+                    <li>AI initiatives doubling delivery speed</li>
+                  </ul>
+                </div>
+              </div>
+            </div></div>
+          </div>
+
+          <!-- 4 · STATS -->
+          <div class="slide-block reveal">
+            <div class="slide-cap"><span class="name">Metrics</span><span class="use">Three figures, never more. Seal accent on the unit.</span></div>
+            <div class="slide-thumb"><div class="slide" data-slide>
+              <div class="s-pad">
+                <div class="s-kicker" style="font-size:15px;">Outcomes</div>
+                <div class="c-h" style="margin-top:22px;font-size:52px;max-width:24ch;">The impact, in three numbers.</div>
+                <div class="stat-grid">
+                  <div class="stat-cell"><div class="sn">2<em>×</em></div><div class="st">Faster delivery via AI</div></div>
+                  <div class="stat-cell"><div class="sn">46<em>%</em></div><div class="st">Lower pipeline cost</div></div>
+                  <div class="stat-cell"><div class="sn">155</div><div class="st">Countries reached</div></div>
+                </div>
+              </div>
+            </div></div>
+          </div>
+
+          <!-- 5 · QUOTE -->
+          <div class="slide-block reveal">
+            <div class="slide-cap"><span class="name">Quote / statement</span><span class="use">A single idea, given air. Mincho at large size.</span></div>
+            <div class="slide-thumb"><div class="slide" data-slide>
+              <div class="s-pad" style="justify-content:center;">
+                <div class="q-mark">「</div>
+                <div class="q-body">Discovery still wins. The tools accelerate building — knowing what to build is the work.</div>
+                <div class="q-by">— On building with AI</div>
+              </div>
+            </div></div>
+          </div>
+
+          <!-- 6 · CLOSING -->
+          <div class="slide-block reveal">
+            <div class="slide-cap"><span class="name">Closing</span><span class="use">Dark slide — invitation and a single point of contact.</span></div>
+            <div class="slide-thumb"><div class="slide dark" data-slide>
+              <div class="s-enso" style="top:50%;right:-160px;transform:translateY(-50%);width:520px;height:520px;opacity:.24;"></div>
+              <div class="s-pad" style="justify-content:center;">
+                <div class="s-kicker">Thank you</div>
+                <div class="cl-h">Let's build something<br><em>worth</em> translating.</div>
+                <div class="cl-links"><span>linkedin.com/in/elisetan</span></div>
+              </div>
+            </div></div>
+          </div>
+
+        </div>
+
+        <div class="reveal" style="margin-top:48px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
+          <a class="btn solid" href="index.html">Back to site <span class="arr">→</span></a>
+          <span style="font-family:var(--gothic);font-size:13px;color:var(--muted);line-height:1.7;max-width:48ch;">Want these as a live, navigable HTML deck or an editable PowerPoint? I can generate either from these templates.</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="cta reveal">
+        <h2>One system,<br>site &amp; <em>slides.</em></h2>
+        <a class="btn solid" href="contact.html">Start a conversation <span class="arr">→</span></a>
+      </div>
+      <div class="ft-bottom">
+        <div class="ft-links">
+          <a href="https://www.linkedin.com/in/elisetan" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/etantechpm" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <div class="colophon">Elise Tan · Down by the bay<br>Product · Program · Operations</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/site.js"></script>
+  <script>
+    // Scale each 1280×720 slide to fit its responsive 16:9 thumb.
+    (function(){
+      var slides = Array.prototype.slice.call(document.querySelectorAll('[data-slide]'));
+      function fit(){
+        slides.forEach(function(s){
+          var thumb = s.parentElement;
+          var scale = thumb.clientWidth / 1280;
+          s.style.transform = 'scale(' + scale + ')';
+        });
+      }
+      fit();
+      window.addEventListener('resize', fit);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+      window.addEventListener('load', fit);
+    })();
+  </script>
+</body>
+</html>
