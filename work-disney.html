@@ -32,6 +32,9 @@
   .pager a .t{font-family:var(--mincho);font-size:20px;font-weight:500;letter-spacing:0.01em;transition:color .3s;}
   .pager a:hover .t{color:var(--seal);}
   .pager a.next{text-align:right;align-items:flex-end;}
+  .deck-embed{position:relative;width:100%;aspect-ratio:16/9;border:1px solid var(--line);background:var(--washi-2);overflow:hidden;box-shadow:0 1px 0 var(--line);}
+  .deck-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;}
+  .deck-note{font-family:var(--gothic);font-size:13px;color:var(--muted);margin-top:18px;letter-spacing:0.02em;}
   @media (max-width:880px){.case-meta{grid-template-columns:1fr 1fr;}.case-meta .m{border-right:0;}.outcomes{grid-template-columns:1fr;}.outcomes .o{border-right:0;}}
 </style>
 </head>
@@ -71,10 +74,14 @@
       </div>
     </section>
 
-    <!-- HERO IMAGE -->
+    <!-- IMPACT DECK -->
     <section class="block" style="border-bottom:1px solid var(--line);">
       <div class="wrap">
-        <div class="ph wide reveal"><span class="cap">[ hero image — global content localization across markets ]</span></div>
+        <div class="sec-head reveal" style="margin-bottom:28px;"><h2>The impact deck</h2><a class="link" href="deck/impact-deck.html" target="_blank" rel="noopener">Open fullscreen ↗</a></div>
+        <div class="deck-embed reveal">
+          <iframe src="deck/impact-deck.html" title="Scaling Global Localization — impact deck" loading="lazy"></iframe>
+        </div>
+        <p class="deck-note reveal">Use the arrows or your keyboard (← →) to move through the deck. Open fullscreen for the full presentation.</p>
       </div>
     </section>
 
