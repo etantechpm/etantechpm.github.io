@@ -24,6 +24,9 @@
   .stack-chips span{font-family:var(--gothic);font-size:13px;font-weight:500;color:var(--sumi-soft);border:1px solid var(--line);background:var(--card);padding:9px 16px;border-radius:100px;}
   .note{font-family:var(--gothic);font-size:13px;font-weight:400;color:var(--sumi-soft);border:1px solid var(--line);border-left:3px solid var(--seal);padding:18px 20px;line-height:1.75;background:var(--card);}
   .gallery{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  .shot{margin:0;}
+  .shot img{width:100%;display:block;border:1px solid var(--line);background:var(--washi-2);}
+  .shot figcaption{font-family:var(--gothic);font-size:13px;color:var(--muted);margin-top:14px;line-height:1.6;letter-spacing:0.01em;}
   .pager{display:flex;justify-content:space-between;align-items:center;padding:44px 0;border-top:1px solid var(--line);gap:20px;flex-wrap:wrap;}
   .pager a{font-family:var(--gothic);font-size:13px;text-decoration:none;color:var(--sumi);display:flex;flex-direction:column;gap:8px;}
   .pager a .lbl{font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);}
@@ -61,38 +64,23 @@
     <section style="padding:0;">
       <div class="wrap">
         <div class="case-meta reveal">
-          <div class="m"><div class="k">Role</div><div class="v">Solo — product, design &amp; build</div></div>
+          <div class="m"><div class="k">Role</div><div class="v">Solo product, design &amp; build</div></div>
           <div class="m"><div class="k">Type</div><div class="v">Personal passion project</div></div>
-          <div class="m"><div class="k">Tooling</div><div class="v">Cursor · Claude · ChatGPT · Lovable</div></div>
+          <div class="m"><div class="k">Tooling</div><div class="v">Claude · Cursor · Bolt · Replit · ChatGPT · Lovable</div></div>
           <div class="m"><div class="k">Focus</div><div class="v">0→1 · AI-assisted building</div></div>
         </div>
       </div>
     </section>
 
-    <!-- HERO IMAGE -->
-    <section class="block" style="border-bottom:1px solid var(--line);">
-      <div class="wrap">
-        <div class="ph wide reveal"><span class="cap">[ hero image — the project in action ]</span></div>
-      </div>
-    </section>
-
     <!-- OVERVIEW -->
     <section class="block">
-      <div class="wrap two-col">
-        <div class="col divide reveal">
+      <div class="wrap">
+        <div class="reveal">
           <div class="case-prose">
             <h3>Why I built it</h3>
             <p>I believe the best product leaders stay close to the craft. This project was my way to learn the new generation of AI-assisted building tools firsthand — not from a deck, but by shipping.</p>
             <p>It’s equal parts curiosity and conviction: understanding what’s newly possible when <strong>anyone with taste and intent can build.</strong></p>
-          </div>
-        </div>
-        <div class="col divide reveal" data-delay="100">
-          <div class="case-prose">
-            <h3>The stack</h3>
-            <div class="stack-chips" style="margin-bottom:24px;">
-              <span>Cursor</span><span>Claude</span><span>ChatGPT</span><span>Lovable</span><span>Figma</span>
-            </div>
-            <p class="note">Placeholder copy — share the project’s name, what it does, and a few screenshots or a live link, and I’ll turn this into a full case study with the real story and visuals.</p>
+            <p>Building games and apps with AI is also an excellent starting project to show my kid, firsthand, what AI is capable of.</p>
           </div>
         </div>
       </div>
@@ -115,8 +103,14 @@
       <div class="wrap">
         <div class="sec-head reveal"><h2>Glimpses</h2></div>
         <div class="gallery reveal">
-          <div class="ph med"><span class="cap">[ screenshot 01 ]</span></div>
-          <div class="ph med"><span class="cap">[ screenshot 02 ]</span></div>
+          <figure class="shot">
+            <img src="assets/vibe-dragon-legacy.png" alt="Dragon Legacy — a pixel-art platformer game, Level 1: The Cave of Scales">
+            <figcaption>Dragon Legacy — a pixel-art platformer, a tribute to Prince of Persia.</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/vibe-wrap-decision.png" alt="WRAP Decision — a decision-making learning app built on the WRAP framework">
+            <figcaption>WRAP Decision — a learning app for better, bias-aware decisions.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
