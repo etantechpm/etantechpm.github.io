@@ -9,6 +9,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
+<style>
+  .work-thumb{display:block;align-self:start;border:1px solid var(--line);box-shadow:0 1px 0 var(--line);overflow:hidden;transition:box-shadow .4s,transform .4s;}
+  .work-thumb img,.work-thumb video{width:100%;display:block;}
+  .work-thumb:hover{box-shadow:0 16px 44px -26px rgba(51,47,41,.5);transform:translateY(-3px);}
+  @media (max-width:880px){.work-thumb{order:-1;}}
+</style>
 </head>
 <body data-screen-label="Home">
   <header class="nav">
@@ -83,7 +89,7 @@
             <p>Led global expansion across Marketing, Messaging, and Customer Services. Shipped 5 CMS–TMS integrations that cut delivery time 63%, and AI work that doubled speed while cutting cost 46%.</p>
             <a class="more" href="work-disney.html">Read the case <span class="arr">→</span></a>
           </div>
-          <a href="work-disney.html" class="ph med" style="text-decoration:none;"><span class="cap">[ product shot — global content localization ]</span></a>
+          <a href="work-disney.html" class="work-thumb" aria-label="Globalizing Disney’s content portfolio"><img src="assets/work-disney-hero.png" alt="Impact deck cover — Scaling global localization, from zero."></a>
         </article>
         <article class="piece reveal">
           <div class="pn">02</div>
@@ -93,7 +99,7 @@
             <p>A personal study in building with AI: designing and shipping a product end-to-end with Cursor, Claude, and modern AI workflows.</p>
             <a class="more" href="work-vibe.html">Read the case <span class="arr">→</span></a>
           </div>
-          <a href="work-vibe.html" class="ph med" style="text-decoration:none;"><span class="cap">[ product shot — passion project ]</span></a>
+          <a href="work-vibe.html" class="work-thumb" aria-label="Vibe Coding — a passion project"><video src="assets/vibe-dragon-legacy.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Dragon Legacy gameplay — a pixel-art platformer"></video></a>
         </article>
       </div>
     </section>
