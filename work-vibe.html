@@ -23,10 +23,15 @@
   .stack-chips{display:flex;flex-wrap:wrap;gap:11px;margin-top:6px;}
   .stack-chips span{font-family:var(--gothic);font-size:13px;font-weight:500;color:var(--sumi-soft);border:1px solid var(--line);background:var(--card);padding:9px 16px;border-radius:100px;}
   .note{font-family:var(--gothic);font-size:13px;font-weight:400;color:var(--sumi-soft);border:1px solid var(--line);border-left:3px solid var(--seal);padding:18px 20px;line-height:1.75;background:var(--card);}
-  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
-  .shot{margin:0;}
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch;}
+  .shot{margin:0;display:flex;flex-direction:column;height:100%;}
   .shot img,.shot video{width:100%;display:block;border:1px solid var(--line);background:var(--washi-2);}
   .shot figcaption{font-family:var(--gothic);font-size:13px;color:var(--muted);margin-top:14px;line-height:1.6;letter-spacing:0.01em;}
+  .shot-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:16px;}
+  .shot-links a{font-family:var(--gothic);font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--sumi);text-decoration:none;border:1px solid var(--line);padding:9px 15px;white-space:nowrap;display:inline-flex;align-items:center;gap:7px;transition:color .3s,border-color .3s;}
+  .shot-links a span{color:var(--muted);transition:color .3s,transform .3s;}
+  .shot-links a:hover{color:var(--seal);border-color:var(--seal);}
+  .shot-links a:hover span{color:var(--seal);transform:translate(2px,-2px);}
   .pager{display:flex;justify-content:space-between;align-items:center;padding:44px 0;border-top:1px solid var(--line);gap:20px;flex-wrap:wrap;}
   .pager a{font-family:var(--gothic);font-size:13px;text-decoration:none;color:var(--sumi);display:flex;flex-direction:column;gap:8px;}
   .pager a .lbl{font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);}
@@ -106,10 +111,18 @@
           <figure class="shot">
             <video src="assets/vibe-dragon-legacy.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Dragon Legacy gameplay — a pixel-art platformer, Level 1: The Cave of Scales"></video>
             <figcaption>Dragon Legacy — a pixel-art platformer, a tribute to Prince of Persia.</figcaption>
+            <div class="shot-links">
+              <a href="https://dragons-legacy--elisectan.replit.app/" target="_blank" rel="noopener">Play the game <span>↗</span></a>
+              <a href="https://github.com/etantechpm/Dragons-Legacy" target="_blank" rel="noopener">GitHub <span>↗</span></a>
+            </div>
           </figure>
           <figure class="shot">
             <video src="assets/vibe-wrap-decision.mp4" autoplay muted loop playsinline preload="metadata" aria-label="WRAP Decision — a decision-making learning app built on the WRAP framework"></video>
             <figcaption>WRAP Decision — a learning app for better, bias-aware decisions.</figcaption>
+            <div class="shot-links">
+              <a href="https://wrap-decision-making-peo1.bolt.host/" target="_blank" rel="noopener">Open the app <span>↗</span></a>
+              <a href="https://github.com/etantechpm/wrapmydecision" target="_blank" rel="noopener">GitHub <span>↗</span></a>
+            </div>
           </figure>
         </div>
       </div>
