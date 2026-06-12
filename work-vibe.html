@@ -25,7 +25,7 @@
   .note{font-family:var(--gothic);font-size:13px;font-weight:400;color:var(--sumi-soft);border:1px solid var(--line);border-left:3px solid var(--seal);padding:18px 20px;line-height:1.75;background:var(--card);}
   .gallery{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
   .shot{margin:0;}
-  .shot img{width:100%;display:block;border:1px solid var(--line);background:var(--washi-2);}
+  .shot img,.shot video{width:100%;display:block;border:1px solid var(--line);background:var(--washi-2);}
   .shot figcaption{font-family:var(--gothic);font-size:13px;color:var(--muted);margin-top:14px;line-height:1.6;letter-spacing:0.01em;}
   .pager{display:flex;justify-content:space-between;align-items:center;padding:44px 0;border-top:1px solid var(--line);gap:20px;flex-wrap:wrap;}
   .pager a{font-family:var(--gothic);font-size:13px;text-decoration:none;color:var(--sumi);display:flex;flex-direction:column;gap:8px;}
@@ -104,11 +104,11 @@
         <div class="sec-head reveal"><h2>Glimpses</h2></div>
         <div class="gallery reveal">
           <figure class="shot">
-            <img src="assets/vibe-dragon-legacy.png" alt="Dragon Legacy — a pixel-art platformer game, Level 1: The Cave of Scales">
+            <video src="assets/vibe-dragon-legacy.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Dragon Legacy gameplay — a pixel-art platformer, Level 1: The Cave of Scales"></video>
             <figcaption>Dragon Legacy — a pixel-art platformer, a tribute to Prince of Persia.</figcaption>
           </figure>
           <figure class="shot">
-            <img src="assets/vibe-wrap-decision.png" alt="WRAP Decision — a decision-making learning app built on the WRAP framework">
+            <video src="assets/vibe-wrap-decision.mp4" autoplay muted loop playsinline preload="metadata" aria-label="WRAP Decision — a decision-making learning app built on the WRAP framework"></video>
             <figcaption>WRAP Decision — a learning app for better, bias-aware decisions.</figcaption>
           </figure>
         </div>

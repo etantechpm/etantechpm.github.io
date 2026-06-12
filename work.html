@@ -11,7 +11,8 @@
 <link rel="stylesheet" href="assets/site.css">
 <style>
   .work-thumb{display:block;align-self:start;border:1px solid var(--line);box-shadow:0 1px 0 var(--line);overflow:hidden;transition:box-shadow .4s,transform .4s;}
-  .work-thumb img{width:100%;display:block;}
+  .work-thumb img,.work-thumb video{width:100%;display:block;}
+  .work-thumb video{pointer-events:none;}
   .work-thumb:hover{box-shadow:0 16px 44px -26px rgba(51,47,41,.5);transform:translateY(-3px);}
   @media (max-width:880px){.work-thumb{order:-1;}}
 </style>
@@ -64,7 +65,7 @@
             <a class="more" href="work-vibe.html">Read the case <span class="arr">→</span></a>
           </div>
           <a href="work-vibe.html" class="work-thumb" aria-label="Vibe Coding — a passion project">
-            <img src="assets/work-vibe-hero.png" alt="Dragon Legacy — a pixel-art platformer game, Level 1: The Cave of Scales.">
+            <video src="assets/vibe-dragon-legacy.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
           </a>
         </article>
       </div>
